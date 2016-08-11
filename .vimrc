@@ -105,7 +105,9 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 nmap <F2> :NERDTreeToggle <CR>
-set mouse=a
-" Numbers
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&  b:NERDTreeType == "primary") | q | endif
 set number
-set numberwidth=5
+" set mouse=a
+" Numbers
+" set numberwidth=5
+map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
